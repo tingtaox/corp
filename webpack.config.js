@@ -15,10 +15,6 @@ module.exports = {
         extensions: [".ts", ".tsx", ".js", ".json"]
     },
 
-    scripts: {
-        start: "webpack-dev-server"
-    },
-
     module: {
         rules: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
