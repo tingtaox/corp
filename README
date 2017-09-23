@@ -1,0 +1,89 @@
+https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
+
+1. Lay out the project
+Let’s start out with a new directory. We’ll name it proj for now, but you can change it to whatever you want.
+
+mkdir proj
+cd proj
+To start, we’re going to structure our project in the following way:
+
+proj/
+├─ dist/
+└─ src/
+   └─ components/
+
+2. Initialize the project
+npm init
+
+3. Install webpack
+npm install webpack --save
+
+4. Install react, react-dom and the typings for them
+npm install --save react react-dom @types/react @types/react-dom
+
+5. Install typescript loader and source mapping
+mpn install --save-dev typescript awesome-typescript-loader source-map-loader
+
+6. Add typescript config file (tsconfig.json)
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react"
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}
+
+7. Write some code
+Add Hello.tsx under src/components
+Add index.tsx under src
+Add index.html under project directory
+
+8. Create webpack config file (webpack.config.js)
+module.exports = {
+    entry: "./src/index.tsx",
+    output: {
+        filename: "bundle.js",
+        path: __dirname + "/dist"
+    },
+
+    // Enable sourcemaps for debugging webpack's output.
+    devtool: "source-map",
+
+    resolve: {
+        // Add '.ts' and '.tsx' as resolvable extensions.
+        extensions: [".ts", ".tsx", ".js", ".json"]
+    },
+
+    module: {
+        rules: [
+            // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
+            { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+
+            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+            { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+        ]
+    },
+
+    // When importing a module whose path matches one of the following, just
+    // assume a corresponding global variable exists and use that instead.
+    // This is important because it allows us to avoid bundling all of our
+    // dependencies, which allows browsers to cache those libraries between builds.
+    externals: {
+        "react": "React",
+        "react-dom": "ReactDOM"
+    },
+};
+
+9. Add auto-refresh
+npm install webpack-dev-server --save
+in index.html, include bundle.js in source file
+add scripts: { start: "webpack-dev-server" } in webpack.config.js
+
+10. run
+webpack-dev-server --inline
