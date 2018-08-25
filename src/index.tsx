@@ -5,6 +5,6 @@ import './styles/appStyles.scss';
 import { SearchHome } from './pages/SearchHome';
 
 ReactDOM.render(
-    <h1>Hello world</h1>,
+    <SearchHome />,
     document.getElementById("root")
 );
