@@ -87,3 +87,13 @@ add scripts: { start: "webpack-dev-server" } in webpack.config.js
 
 10. run
 webpack-dev-server --inline
+
+# Troubleshoot
+1. Make sure the version of @types/react and version of @types/react-dom are compatible. To avoid typing relating issues, use the latest version of @types/react and @types/react-dom. ```npm install --save @types/react@latest @types/react-dom@latest. https://github.com/DefinitelyTyped/DefinitelyTyped/issues/20863
+
+2. 
+output: {
+    filename: "bundle.js",
+    path: path.join(__dirname, 'dist'),
+},
+Don't use __dirname + 'dist'. there is probably some spaces in __dirname which causes it not working.

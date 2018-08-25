@@ -1,9 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import './styles/appStyles.scss';
 
-import { Hello } from "./components/UserList";
+import { SearchHome } from './pages/SearchHome';
 
 ReactDOM.render(
-    <Hello compiler="TypeScript" framework="React" />,
-    document.getElementById("example")
+    <h1>Hello world</h1>,
+    document.getElementById("root")
 );

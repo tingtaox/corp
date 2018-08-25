@@ -1,10 +1,12 @@
+var path = require('path');
+
 module.exports = {
     entry: [
         "./src/index.tsx"
     ],
     output: {
         filename: "bundle.js",
-        path: __dirname + "/dist"
+        path: path.join(__dirname, 'dist'),
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -21,8 +23,20 @@ module.exports = {
             { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
 
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-            { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+            { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+
+            {
+                test:/\.(s*)css$/,
+                use:['style-loader','css-loader', 'sass-loader']
+             }
         ]
+    },
+
+    devServer: {
+        historyApiFallback: true,
+        // contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 8080
     },
 
     // When importing a module whose path matches one of the following, just
