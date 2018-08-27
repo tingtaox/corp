@@ -99,3 +99,7 @@ output: {
     path: path.join(__dirname, 'dist'),
 },
 Don't use __dirname + 'dist'. there is probably some spaces in __dirname which causes it not working.
+
+3. Webpack dev server detects index.html under base-content. You must have your index.html in that directory. Also, make sure react.js and react-dom.js in the directory.
+
+4. HtmlWebpackPlugin will generate a index.html in /dist directory. the generated index.html does not have <div id="root"></div>. It only has a js bundle. So in index.tsx you can't select root div element as container. Use body as the container.

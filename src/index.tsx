@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import './styles/appStyles.scss';
+import './styles/index.scss';
 
 import { SearchHome } from './pages/SearchHome';
 
 ReactDOM.render(
     <SearchHome />,
-    document.getElementById("root")
+    document.querySelector('body')
 );
