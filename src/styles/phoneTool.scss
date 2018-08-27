@@ -1,0 +1,35 @@
+.phone-tool-container {
+  height: 10em;
+  border: 1px solid #ccc;
+  text-align: center;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+
+  .author-img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 55px;
+    height: 55px;
+    background-color: lightblue;
+  }
+
+  .author-info {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1px;
+    text-align: left;
+
+    &:before {
+      margin-right: -0.25em;
+    }
+
+    .author-name, .author-email {
+      display: block;
+    }
+  }
+}
