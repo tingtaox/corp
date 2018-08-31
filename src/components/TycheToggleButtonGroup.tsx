@@ -21,28 +21,10 @@ export interface IToggleButtonGroupProps {
   groupName?: string;   // it is required when type is radio 
 }
 
-export class TycheToggleButtonGroup extends React.Component<IToggleButtonGroupProps, any> {
+const TycheToggleButtonGroup: React.StatelessComponent<IToggleButtonGroupProps> = (props) => {
 
-  constructor(props: IToggleButtonGroupProps) {
-    super(props);
-  }
-
-  render() {
-    const buttonType: any = this.props.buttonType;
-    return (
-      <ToggleButtonGroup
-        name={this.props.groupName}
-        type={buttonType}
-        value={this.props.selected}
-        onChange={(values: any) => this.handleChange(values)}
-      >
-        {this.renderOptions()}
-      </ToggleButtonGroup>
-    );
-  }
-
-  private renderOptions = () => {
-    return this.props.options.map(option => {
+  const renderOptions = () => {
+    return props.options.map(option => {
       return <ToggleButton
         key={option.id}
         value={option.id}
@@ -52,9 +34,22 @@ export class TycheToggleButtonGroup extends React.Component<IToggleButtonGroupPr
     });
   }
 
-  private handleChange = (selectedIds: string | string[]) => {
-    console.log(selectedIds);
-    this.props.handleSelect(selectedIds);
+  const handleChange = (selectedIds: string | string[]) => {
+    props.handleSelect(selectedIds);
   }
 
+  const buttonType: any = props.buttonType;
+  return (
+    <ToggleButtonGroup
+      name={props.groupName}
+      type={buttonType}
+      value={props.selected}
+      onChange={(values: any) => handleChange(values)}
+    >
+      {renderOptions()}
+    </ToggleButtonGroup>
+  );
+
 }
+
+export default TycheToggleButtonGroup;

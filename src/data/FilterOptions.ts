@@ -1,3 +1,6 @@
+import { HouseDetailTileProps } from '../components/HouseDetailTile';
+import { HouseTypeEnum } from '../containers/search/types';
+
 export const locations = [
   {
     id: 'null',
@@ -105,4 +108,50 @@ export const facilityOptions = [
     id: 'security',
     label: 'Security'
   }
+];
+
+export const houseTypeOptions = [
+  {
+    id: 'all',
+    label: 'All'
+  },
+  {
+    id: HouseTypeEnum.APARTMENT,
+    label: 'Apartment'
+  },
+  {
+    id: HouseTypeEnum.TOWNHOUSE,
+    label: 'Townhouse'
+  },
+  {
+    id: HouseTypeEnum.SINGLE_HOUSE,
+    label: 'Single family house'
+  }
+];
+
+export const houses: HouseDetailTileProps[] = [
+  {
+    id: '#2134',
+    address: '2207 W Ruffner St, Seattle, WA 98199',
+    price: '1500',
+    houseType: HouseTypeEnum.TOWNHOUSE,
+    bedroom: 3,
+    bathroom: 3
+  },
+  {
+    id: '#8234',
+    address: '2700 Ellendale Place, Los Angeles, CA 90007',
+    price: '1500',
+    houseType: HouseTypeEnum.APARTMENT,
+    bedroom: 2,
+    bathroom: 1
+  },
+  {
+    id: '#9234',
+    address: '1133 W 37th St, Los Angeles, CA 90007',
+    price: '2500',
+    houseType: HouseTypeEnum.APARTMENT,
+    bedroom: 2,
+    bathroom: 1
+  },
 ];

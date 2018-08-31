@@ -13,29 +13,24 @@ export interface ISearchBarProps {
   handleSelect: (value: ISearchBarOption) => void;
 }
 
-export class SearchBar extends React.Component<ISearchBarProps, any> {
+const SearchBar: React.StatelessComponent<ISearchBarProps> = (props) => {
 
-  constructor(props: ISearchBarProps) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
-        <Typeahead
-          onChange={this.onSelect}
-          options={this.props.options}
-          selected={[this.props.selected]}
-        ></Typeahead>
-      </div>
-    );
-  }
-
-  private onSelect = (selectedOptions: ISearchBarOption[]) => {
+  const onSelect = (selectedOptions: ISearchBarOption[]) => {
     if (!isEmpty(selectedOptions)) {
       this.props.handleSelect(selectedOptions[0]);
     }
   }
 
+  return (
+    <div>
+      <Typeahead
+        onChange={onSelect}
+        options={props.options}
+        selected={[props.selected]}
+      ></Typeahead>
+    </div>
+  );
+
 }
+
+export default SearchBar;
