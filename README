@@ -103,3 +103,5 @@ Don't use __dirname + 'dist'. there is probably some spaces in __dirname which c
 3. Webpack dev server detects index.html under base-content. You must have your index.html in that directory. Also, make sure react.js and react-dom.js in the directory.
 
 4. HtmlWebpackPlugin will generate a index.html in /dist directory. the generated index.html does not have <div id="root"></div>. It only has a js bundle. So in index.tsx you can't select root div element as container. Use body as the container.
+
+5. redux-observable has breaking changes in recent versions. Lower version of redux-observable(v0.18.0 does not work with react-redux(v5.0.7). Must use the latest redux-observable@1.0.0 and rxjs@6.3.1. Refer to document for redux-observable. rxjs operators must be imported in this way: ```import { filter, mergeMap, mapTo } from 'rxjs/operators';```

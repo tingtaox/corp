@@ -11,6 +11,12 @@ export enum SearchActionTypes {
   FILTER_HOUSE_TYPE = '@@filter/FILTER_HOUSE_TYPE'
 }
 
+export enum ObservableChainActionTypes {
+  CHAIN_ACTION_1 = '@@observable/CHAIN_ACTION_1',
+  CHAIN_ACTION_2 = '@@observable/CHAIN_ACTION_2',
+  CHAIN_ACTION_3 = '@@observable/CHAIN_ACTION_3'
+}
+
 /** interfaces for actions */
 export interface IQueryLocationAction extends Action {
   type: SearchActionTypes.QUERY_LOCATIONS,
@@ -44,6 +50,20 @@ export interface IFilterHouseTypeAction extends Action {
   }
 }
 
+export interface IObservableChainAction1 extends Action {
+  type: ObservableChainActionTypes.CHAIN_ACTION_1
+}
+
+export interface IObservableChainAction2 extends Action {
+  type: ObservableChainActionTypes.CHAIN_ACTION_2
+}
+
+export interface IObservableChainAction3 extends Action {
+  type: ObservableChainActionTypes.CHAIN_ACTION_3
+}
+
+export type ObservableChainAction = IObservableChainAction1 | IObservableChainAction2 | IObservableChainAction3;
+
 export type SearchAction = IQueryLocationAction | IFilterPriceAction | IFilterFacilityAction | IFilterHouseTypeAction;
 
 /** action creators */
@@ -65,4 +85,16 @@ export const createFilterFacilityAction: ActionCreator<IFilterFacilityAction> = 
 export const createFilterHouseTypeAction: ActionCreator<IFilterHouseTypeAction> = (houseType: HouseTypeEnum, filteredResult: HouseDetail[]) => ({
   type: SearchActionTypes.FILTER_HOUSE_TYPE,
   payload: { houseType, filteredResult }
+})
+
+export const createObservableChainAction1: ActionCreator<IObservableChainAction1> = () => ({
+  type: ObservableChainActionTypes.CHAIN_ACTION_1
+})
+
+export const createObservableChainAction2: ActionCreator<IObservableChainAction2> = () => ({
+  type: ObservableChainActionTypes.CHAIN_ACTION_2
+})
+
+export const createObservableChainAction3: ActionCreator<IObservableChainAction3> = () => ({
+  type: ObservableChainActionTypes.CHAIN_ACTION_3
 })

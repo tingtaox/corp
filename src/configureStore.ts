@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { createStore } from 'redux';
-import { ApplicationState, applicationReducer } from './index';
+import { createStore, applyMiddleware } from 'redux';
+import { createEpicMiddleware } from 'redux-observable'
+import { ApplicationState, applicationReducer, applicationEpics } from './index';
 import { locations, facilityOptions, houses } from './data/FilterOptions';
 import { HouseTypeEnum } from './containers/search/types';
+
+const epicMiddleWare = createEpicMiddleware();
 
 const initialState: ApplicationState = {
   search: {
@@ -15,4 +18,9 @@ const initialState: ApplicationState = {
   }
 };
 
-export const store = createStore(applicationReducer, initialState);
+export const store = createStore(
+  applicationReducer,
+  applyMiddleware(epicMiddleWare)
+);
+
+epicMiddleWare.run(applicationEpics);

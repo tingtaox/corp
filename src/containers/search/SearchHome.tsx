@@ -19,7 +19,8 @@ import {
   createFilterHouseTypeAction,
   createFilterFacilityAction,
   createFilterPriceAction,
-  createQueryLocationAction
+  createQueryLocationAction,
+  createObservableChainAction1
 } from './actions';
 
 interface ISearchHomeProps extends DispatchProp { }
@@ -79,6 +80,7 @@ class SearchHome extends React.Component<AllProps, any> {
         <TycheToggleButtonGroup {...priceRangeProps} />
         <TycheToggleButtonGroup {...facilitiesProps} />
         <TycheToggleButtonGroup {...houseTypeProps} />
+        <button onClick={this.triggerObservableChain}>Click me!</button>
         {this.props.filteredResult &&
           this.props.filteredResult.map(house => <HouseDetailTile key={house.id} {...house} />)
         }
@@ -105,6 +107,9 @@ class SearchHome extends React.Component<AllProps, any> {
     this.props.dispatch(createFilterHouseTypeAction(selectedHouseType, filteredResult));
   }
 
+  private triggerObservableChain = () => {
+    this.props.dispatch(createObservableChainAction1());
+  }
 }
 
 const mapStateToProps = (state: ApplicationState) => {

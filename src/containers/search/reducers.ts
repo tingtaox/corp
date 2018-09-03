@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { Reducer } from 'redux';
-import { SearchActionTypes, SearchAction } from './actions';
+import {
+  SearchActionTypes,
+  SearchAction,
+  ObservableChainAction,
+  ObservableChainActionTypes
+} from './actions';
 import { ISearchState, HouseTypeEnum } from './types';
 import { locations, facilityOptions } from '../../data/FilterOptions';
 
@@ -39,6 +44,23 @@ const searchReducer: Reducer<ISearchState> = (state: ISearchState = initialState
         filteredResult: action.payload.filteredResult
       };
     default:
+      return state;
+  }
+}
+
+export const observableChainActionReducer: Reducer<ISearchState> = (state: ISearchState = initialState, action: ObservableChainAction) => {
+  switch (action.type) {
+    case ObservableChainActionTypes.CHAIN_ACTION_1:
+      console.log('Observable chain action 1');
+      return state;
+    case ObservableChainActionTypes.CHAIN_ACTION_2:
+      console.log('Observable chain action 2');
+      return state;
+    case ObservableChainActionTypes.CHAIN_ACTION_3:
+      console.log('Observable chain action 3');
+      return state;
+    default:
+      console.log('Observable chain action default');
       return state;
   }
 }
