@@ -20,3 +20,5 @@ export interface ISearchState {
   rawListItems: HouseDetail[];
   filteredResult: HouseDetail[];
 }
+
+export type ListHouseData = ISearchState;

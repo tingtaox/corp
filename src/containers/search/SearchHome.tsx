@@ -22,6 +22,9 @@ import {
   createQueryLocationAction,
   createObservableChainAction1
 } from './actions';
+import {
+  createSearchByZipcodeAction
+} from '../../services/actions';
 
 interface ISearchHomeProps extends DispatchProp { }
 
@@ -108,7 +111,7 @@ class SearchHome extends React.Component<AllProps, any> {
   }
 
   private triggerObservableChain = () => {
-    this.props.dispatch(createObservableChainAction1());
+    this.props.dispatch(createSearchByZipcodeAction('98199'));
   }
 }
 

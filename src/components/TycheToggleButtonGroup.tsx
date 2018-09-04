@@ -18,7 +18,7 @@ export interface IToggleButtonGroupProps {
   options: IToggleButton[];
   selected: string | string[];
   buttonType: IButtonGroupType;
-  groupName?: string;   // it is required when type is radio 
+  groupName?: string;   // it is required when type is radio
 }
 
 const TycheToggleButtonGroup: React.StatelessComponent<IToggleButtonGroupProps> = (props) => {
@@ -39,6 +39,7 @@ const TycheToggleButtonGroup: React.StatelessComponent<IToggleButtonGroupProps> 
   }
 
   const buttonType: any = props.buttonType;
+
   return (
     <ToggleButtonGroup
       name={props.groupName}
@@ -49,7 +50,6 @@ const TycheToggleButtonGroup: React.StatelessComponent<IToggleButtonGroupProps> 
       {renderOptions()}
     </ToggleButtonGroup>
   );
-
 }
 
 export default TycheToggleButtonGroup;

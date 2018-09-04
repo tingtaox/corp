@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Action, ActionCreator } from 'redux';
-import { HouseTypeEnum, IHouseType } from './types';
+import { HouseTypeEnum, ListHouseData } from './types';
 import { ISearchBarOption } from '../../components/SearchBar';
 import { HouseDetail } from '../../components/HouseDetailTile';
 
@@ -72,7 +72,7 @@ export const createQueryLocationAction: ActionCreator<IQueryLocationAction> = (l
   payload: { location, filteredResult }
 })
 
-export const createFilterPriceAction: ActionCreator<IFilterPriceAction> = (priceRange: string,  filteredResult: HouseDetail[]) => ({
+export const createFilterPriceAction: ActionCreator<IFilterPriceAction> = (priceRange: string, filteredResult: HouseDetail[]) => ({
   type: SearchActionTypes.FILTER_PRICE,
   payload: { priceRange, filteredResult }
 })

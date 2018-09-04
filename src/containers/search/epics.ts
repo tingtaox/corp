@@ -1,14 +1,12 @@
 import { Epic, ofType } from 'redux-observable';
-import { Action, Dispatch } from 'redux';
-import { ApplicationState } from '../../index';
 import {
   ObservableChainActionTypes,
   ObservableChainAction,
   createObservableChainAction2,
   createObservableChainAction3
 } from './actions';
-import { filter, mergeMap, mapTo } from 'rxjs/operators';
-import { merge, of, from, interval } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
+import { merge, of, interval } from 'rxjs';
 
 const ObservableChainEpic: Epic<ObservableChainAction, any> = (action$, store) => {
   return action$.pipe(

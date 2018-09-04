@@ -51,16 +51,12 @@ const searchReducer: Reducer<ISearchState> = (state: ISearchState = initialState
 export const observableChainActionReducer: Reducer<ISearchState> = (state: ISearchState = initialState, action: ObservableChainAction) => {
   switch (action.type) {
     case ObservableChainActionTypes.CHAIN_ACTION_1:
-      console.log('Observable chain action 1');
       return state;
     case ObservableChainActionTypes.CHAIN_ACTION_2:
-      console.log('Observable chain action 2');
       return state;
     case ObservableChainActionTypes.CHAIN_ACTION_3:
-      console.log('Observable chain action 3');
       return state;
     default:
-      console.log('Observable chain action default');
       return state;
   }
 }
