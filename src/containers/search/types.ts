@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { ISearchBarOption } from '../../components/SearchBar';
-import { HouseDetail } from '../../components/HouseDetailTile';
 
 export enum HouseTypeEnum {
   APARTMENT = 'APARTMENT',
@@ -13,12 +11,7 @@ export interface IHouseType {
 }
 
 export interface ISearchState {
-  location: ISearchBarOption;
   priceRange: string;
   facilities: string[];
   houseType: string;
-  rawListItems: HouseDetail[];
-  filteredResult: HouseDetail[];
 }
-
-export type ListHouseData = ISearchState;

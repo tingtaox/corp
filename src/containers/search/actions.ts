@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Action, ActionCreator } from 'redux';
-import { HouseTypeEnum, ListHouseData } from './types';
-import { ISearchBarOption } from '../../components/SearchBar';
-import { HouseDetail } from '../../components/HouseDetailTile';
+import { HouseTypeEnum, IHouseType } from './types';
+import { HouseCardInfo } from '../../components/HouseCard';
 
 export enum SearchActionTypes {
   QUERY_LOCATIONS = '@@search/QUERY_LOCATIONS',
@@ -21,24 +20,24 @@ export enum ObservableChainActionTypes {
 export interface IQueryLocationAction extends Action {
   type: SearchActionTypes.QUERY_LOCATIONS,
   payload: {
-    location: ISearchBarOption;
-    filteredResult: HouseDetail[];
+    location: string,
+    filteredResult: HouseCardInfo[]
   }
 }
 
 export interface IFilterPriceAction extends Action {
   type: SearchActionTypes.FILTER_PRICE,
   payload: {
-    priceRange: string;
-    filteredResult: HouseDetail[];
+    priceRange: string,
+    filteredResult: HouseCardInfo[]
   }
 }
 
 export interface IFilterFacilityAction extends Action {
   type: SearchActionTypes.FILTER_FACILITY,
   payload: {
-    facilities: string[];
-    filteredResult: HouseDetail[];
+    facilities: string[],
+    filteredResult: HouseCardInfo[]
   }
 }
 
@@ -46,7 +45,7 @@ export interface IFilterHouseTypeAction extends Action {
   type: SearchActionTypes.FILTER_HOUSE_TYPE,
   payload: {
     houseType: HouseTypeEnum,
-    filteredResult: HouseDetail[];
+    filteredResult: HouseCardInfo[]
   }
 }
 
@@ -67,22 +66,22 @@ export type ObservableChainAction = IObservableChainAction1 | IObservableChainAc
 export type SearchAction = IQueryLocationAction | IFilterPriceAction | IFilterFacilityAction | IFilterHouseTypeAction;
 
 /** action creators */
-export const createQueryLocationAction: ActionCreator<IQueryLocationAction> = (location: ISearchBarOption, filteredResult: HouseDetail[]) => ({
+export const createQueryLocationAction: ActionCreator<IQueryLocationAction> = (location: string, filteredResult: HouseCardInfo[]) => ({
   type: SearchActionTypes.QUERY_LOCATIONS,
   payload: { location, filteredResult }
 })
 
-export const createFilterPriceAction: ActionCreator<IFilterPriceAction> = (priceRange: string, filteredResult: HouseDetail[]) => ({
+export const createFilterPriceAction: ActionCreator<IFilterPriceAction> = (priceRange: string,  filteredResult: HouseCardInfo[]) => ({
   type: SearchActionTypes.FILTER_PRICE,
   payload: { priceRange, filteredResult }
 })
 
-export const createFilterFacilityAction: ActionCreator<IFilterFacilityAction> = (facilities: string[], filteredResult: HouseDetail[]) => ({
+export const createFilterFacilityAction: ActionCreator<IFilterFacilityAction> = (facilities: string[], filteredResult: HouseCardInfo[]) => ({
   type: SearchActionTypes.FILTER_FACILITY,
   payload: { facilities, filteredResult }
 })
 
-export const createFilterHouseTypeAction: ActionCreator<IFilterHouseTypeAction> = (houseType: HouseTypeEnum, filteredResult: HouseDetail[]) => ({
+export const createFilterHouseTypeAction: ActionCreator<IFilterHouseTypeAction> = (houseType: HouseTypeEnum, filteredResult: HouseCardInfo[]) => ({
   type: SearchActionTypes.FILTER_HOUSE_TYPE,
   payload: { houseType, filteredResult }
 })

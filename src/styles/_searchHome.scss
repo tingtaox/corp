@@ -1,0 +1,222 @@
+.header {
+  background-color: #313131;
+  line-height: 2.5;
+  font-size: 14px;
+  color: #e4e2e2;
+
+  .text-container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    span {
+      margin-right: 20px;
+    }
+  
+    .login {
+      margin-right: 10px;
+
+      &::after {
+          content: "|";
+          display: inline-block;
+          margin-left: 10px;
+      }
+    }
+  
+    .my-orders {
+      margin-left: auto;
+    }
+  
+    .my-posts {
+      background-color: #545454;
+      padding-left: 4px;
+      padding-right: 4px;
+      border-radius: 4px;
+    }
+  }
+}
+
+.banner {
+  width: 80%;
+  min-width: 1138px;
+  margin: auto;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    border-bottom: 1px solid $light-grey;
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 30px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 80px;
+    height: 70px;
+    background-color: $light-golden;
+    margin-right: 30px
+  }
+
+  .label {
+    position: absolute;
+    top: -83%;
+    left: 14%;
+    background-color: $light-golden;
+    color: $light-grey;
+    font-size: 8px;
+    padding: 4px 9px;
+    border-radius: 4px;
+    text-align: center;
+    color: #ffffff;
+    box-sizing: content-box;
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 100%;
+      left: 50%;
+      border-top: 2px solid $light-golden;
+      border-left: 2px solid transparent;
+      border-right: 2px solid transparent;
+      border-bottom: 2px solid transparent;
+    }
+  }
+}
+
+.breadcrumb {
+  width: 80%;
+  min-width: 1138px;
+  margin: auto;
+  color: $light-dark;
+  font-size: 14px;
+
+  &:hover {
+    color: $red-pink;
+    cursor: pointer;
+  }
+}
+
+.filter-container {
+  width: 80%;
+  min-width: 1138px;
+  margin: auto;
+  margin-top: 30px;
+  border: 1px solid $light-grey;
+  border-radius: 4px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  .search-input {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: $light-grey;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .recommendation-input {
+      display: inline-block;
+      width: 80%;
+      vertical-align: middle;
+      margin-right: 7px;
+    }
+
+    .search-button {
+      display: inline-block;
+      width: 18%;
+      vertical-align: middle;
+    }
+  }
+
+  .city, .price, .facility, .house-type, .layout {
+    display: inline-block;
+    border-top: 1px dotted $light-grey;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    margin-left: 15px;
+    margin-right: 15px;
+
+    .title {
+      display: inline-block;
+      width: 7%;
+    }
+  }
+  
+}
+
+.search-results {
+  position: relative;
+  margin: auto;
+  margin-top: 20px;
+  width: 80%;
+  min-width: 1138px;
+
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+
+  .result-container {
+    float: left;
+    width: 75%;
+    min-width: 820px;
+
+    .sort-bar {
+      font-size: 14px;
+      line-height: 2.5;
+      border: 1px solid #f7f7f7;
+      margin-bottom: 2px;
+      background-color: #f7f7f7;
+      padding: 4px 18px;
+      border: 1px solid #ddd;
+
+      >span {
+        margin-right: 8px;
+        cursor: pointer;
+  
+        &.selected {
+          color: #ff5a5f;
+        }
+      }
+    }
+  }
+
+  .map-wrapper {
+    position: absolute;
+    top: 0;
+    right: 24%;
+
+    .map-fixed {
+      position: fixed !important;
+      border: 1px solid #ddd;
+      height: 400px;
+      width: 19.2%;
+      min-width: 275px;
+      background-color: lightgreen;
+      opacity: 0.6;
+    }
+
+  }
+
+}

@@ -10,12 +10,11 @@ import { ISearchState, HouseTypeEnum } from './types';
 import { locations, facilityOptions } from '../../data/FilterOptions';
 
 const initialState: ISearchState = {
-  location: locations[0],
   priceRange: '1500',
   facilities: [facilityOptions[0].id, facilityOptions[1].id],
   houseType: HouseTypeEnum.APARTMENT,
-  rawListItems: [],
-  filteredResult: []
+  // rawListItems: [],
+  // filteredResult: []
 };
 
 const searchReducer: Reducer<ISearchState> = (state: ISearchState = initialState, action: SearchAction) => {

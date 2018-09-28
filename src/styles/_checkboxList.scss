@@ -1,0 +1,21 @@
+.checkbox-list {
+  
+  .options {
+    >span {
+      margin-right: 8px;
+      padding: 5px 7px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $light-grey;
+      }
+
+      &.selected {
+        color: $white;
+        background-color: $red-pink;
+      }
+    }
+  }
+
+}

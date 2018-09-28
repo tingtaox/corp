@@ -1,0 +1,85 @@
+.recommendations {
+  visibility: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 8px;
+  color: $light-dark;
+
+  .navtabs {
+    border-bottom: 1px solid #ddd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    >span {
+      margin-left: 4px;
+      margin-right: 4px;
+      cursor: pointer;
+    }
+
+    >span.active {
+      padding-bottom: 11px;
+      border-bottom: 2px solid #ff5a5f;
+    }
+  }
+
+  .cities {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+
+    .title {
+      margin: 8px 10px;
+      color: lightgray;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 8px 14px;
+
+      >span {
+        margin-bottom: 5px;
+        line-height: 2.5;
+        margin-right: 4px;
+        padding: 5px 7px;
+        flex-basis: 13%;
+
+        &:hover {
+          background-color: #ddd;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .schools {
+    .title {
+      margin: 8px 10px;
+      color: lightgray;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 8px 14px;
+      display: flex;
+      justify-content: flex-start;
+
+      >span {
+        margin-bottom: 5px;
+        line-height: 2.5;
+        margin-right: 4px;
+        padding: 5px 7px;
+
+        &:hover {
+          background-color: #ddd;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+}
