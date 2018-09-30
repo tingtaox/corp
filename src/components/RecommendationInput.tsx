@@ -9,6 +9,8 @@ export interface RecommendationInputProps {
   placeholder?: string;
 }
 
+export type RecommendationInputState = RecommendationInputProps;
+
 const RecommendationInput: React.StatelessComponent<RecommendationInputProps> = (props) => {
 
   const onInputChange = (evt: any) => {

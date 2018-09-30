@@ -11,7 +11,7 @@ export interface HouseCardProps {
   price: number;
 }
 
-export type HouseCardInfo = HouseCardProps;
+export type HouseCardState = HouseCardProps;
 
 const HouseCard: React.StatelessComponent<HouseCardProps> = (props) => {
 

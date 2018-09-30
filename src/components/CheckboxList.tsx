@@ -11,6 +11,8 @@ export interface CheckboxListProps {
   onSelect: (checkboxId: string) => void;
 }
 
+export type CheckboxListState = CheckboxListProps;
+
 const CheckboxList: React.StatelessComponent<CheckboxListProps> = (props) => {
 
   const onSelect = (checkboxId: string) => {

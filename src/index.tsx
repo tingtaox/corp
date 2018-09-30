@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { store } from './configureStore';
 
-import SearchHome from './containers/search/SearchHome';
+import SearchHome from './pages/search/SearchHome';
 
 ReactDOM.render(
   <Provider store={store}>

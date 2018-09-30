@@ -1,33 +1,43 @@
 import * as React from 'react';
-import { combineReducers, Reducer, Action } from 'redux';
+import { Reducer, Action, combineReducers } from 'redux';
 import { Epic, combineEpics } from 'redux-observable';
-import { ISearchState } from './containers/search/types';
-import searchReducer, { observableChainActionReducer } from './containers/search/reducers';
 import {
-  listHouseByZipcodeEpic,
-  listHouseByTagEpic,
-  describeHouseEpic
-} from './services/epics';
+  FilterOptions,
+  recommendationPanelReducer,
+  filterPanelReducer,
+  sortResultReducer
+} from './reducers/filterReducers';
 import {
-  searchApiRequestReducer
-} from './services/reducers';
+  resultListReducer
+} from './reducers/resultListReducers';
+import {
+  fetchHouseListEpic,
+  fetchRecCountriesEpic
+} from './epics/apiEpics';
 
-import ObservableChainEpic from './containers/search/epics';
+import {
+  RecommendationsContainerState
+} from './components/RecommendationsContainer';
+
+import { RecommendationInputState } from './components/RecommendationInput';
+import { HouseCardState } from './components/HouseCard';
 
 export interface ApplicationState {
-  search: ISearchState;
+  recommendationInput?: RecommendationInputState;
+  recommendationsPanel?: RecommendationsContainerState;
+  filterOptions: FilterOptions;
+  houseCards: HouseCardState[];
+  sortOrder: boolean;
 }
 
 export const applicationReducer: Reducer<ApplicationState> = combineReducers({
-  search: searchReducer,
-  observableReducer: observableChainActionReducer,
-  searchApiRequestReducer
+  recommendationPanel: recommendationPanelReducer,
+  filterOptions: filterPanelReducer,
+  houseCards: resultListReducer,
+  sortOrder: sortResultReducer
 });
 
 export const applicationEpics: Epic<Action, any> = combineEpics(
-  ObservableChainEpic,
-  listHouseByZipcodeEpic,
-  listHouseByTagEpic,
-  describeHouseEpic
+  fetchHouseListEpic,
+  fetchRecCountriesEpic
 );
-
